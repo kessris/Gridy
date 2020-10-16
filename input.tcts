@@ -1,0 +1,14 @@
+CreateGame(12, 3, 60, 'test.wav');
+Cell full = CreateCell(3, blue, 25);
+Cell half = CreateCell(2, red, 50);
+Repeat repeatHalf = CreateRepeat(full, 5, 30);
+Function f = CreateFunction(t % 6, t % 6, half, 10);
+Section a=CreateSection(10);
+Section b =CreateSection(10);
+a.Add(repeatHalf, 5, 1, 0);
+a.Add(full, 0, 1,  9);
+b.Add(f, 5);
+AddSection(a);
+AddSection(b);
+
+Difficulty(5);
