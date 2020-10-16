@@ -1,6 +1,4 @@
-# cpsc410_project1_team18 - Gridy
-
-## Gridy
+# Gridy
 
 ### Contributors
 David Kim, Hee Su Kim, Josh Rayo, Toji Nakabayashi, Won Tae Lee
