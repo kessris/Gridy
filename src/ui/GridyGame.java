@@ -41,9 +41,12 @@ public class GridyGame extends Application {
     private static int gridWidthInSquares = 3;
     private static int gridHeightInSquares = 3;
     private static int squareWidthPx = 100;
+    private static final double DIFFICULTY_INCREMENTS = 0.2;
     private boolean gameStarted = false;
     private static String bgmFile;
     private static double gameDuration;
+    private static int difficulty;
+    private static double timeMultiplier;
     private MediaPlayer mediaPlayer;
     int score = 0;
     GridPane gp;
@@ -75,10 +78,11 @@ public class GridyGame extends Application {
             System.out.println("========================= Starting Gridy Game . . . ========================");
             System.out.println(e.getGame());
 
+            difficulty = e.getGame().getDifficulty() - 1;
+            timeMultiplier = 1 + (DIFFICULTY_INCREMENTS * difficulty);
             gameCellQueue = e.getGame().getGameCellQueue();
             gridWidthInSquares = e.getGame().getX();
             gridHeightInSquares = e.getGame().getY();
-
             bgmFile = e.getGame().getFileName();
             gameDuration = e.getGame().getTime();
 
@@ -125,7 +129,7 @@ public class GridyGame extends Application {
                 this.nanoStartTime = startTime;
             }
             public void handle(long currentNanoTime) {
-                double timeElapsed = (currentNanoTime - this.nanoStartTime) / 1000000000.0;
+                double timeElapsed = (currentNanoTime - this.nanoStartTime) * timeMultiplier / 1000000000.0; // multiplying the time for difficulty
 
                 // stop the game loop once there are no more active or future cells
                 // activeCells.isEmpty() && gameCellQueue.isEmpty()

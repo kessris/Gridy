@@ -240,6 +240,7 @@ The function stuff still doesn't make sense but other than that it feels like a 
 * Added more detailed documentation for our grammar and inputted variables
 * We created a concrete design for how the language will be written (Java style)
 * Added diagrams in the documentation to enhance language comprehension
+* Modified few parameter and method names to be more intuitive
 
 
 
@@ -288,7 +289,7 @@ The function stuff still doesn't make sense but other than that it feels like a 
 
 ✔	Oct 13-15 Test edge cases, bug fixing and feature additions as needed
 
-×	Oct 15 take video presentation and final user case study
+✔	Oct 15 take video presentation and final user case study
 
-×	Oct 19 9am due
+✔	Oct 19 9am due
 

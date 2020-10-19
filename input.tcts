@@ -1,14 +1,30 @@
-CreateGame(12, 3, 60, 'test.wav');
-Cell full = CreateCell(3, blue, 25);
-Cell half = CreateCell(2, red, 50);
-Repeat repeatHalf = CreateRepeat(full, 5, 30);
-Function f = CreateFunction(t % 6, t % 6, half, 10);
-Section a=CreateSection(10);
-Section b =CreateSection(10);
-a.Add(repeatHalf, 5, 1, 0);
-a.Add(full, 0, 1,  9);
-b.Add(f, 5);
-AddSection(a);
-AddSection(b);
 
-Difficulty(5);
+CreateGame(6,6,60, 'test.wav');
+
+Cell blue = CreateCell(3, blue, 25);
+Cell red = CreateCell(2, red, 50);
+Cell mint = CreateCell(2, #98ff98, 50);
+
+Repeat repeatBlue = CreateRepeat(blue, 5, 20);
+Repeat repeatMint = CreateRepeat(mint, 5, 20);
+Repeat repeatBlueFaster = CreateRepeat(blue, 10, 20);
+
+Function diagonal = CreateFunction(t%6, t%6, red, 12);
+Function otherDiagonal = CreateFunction(t+2, t%6, red,12);
+Function leftToRight = CreateFunction(t%6, 0, mint, 12);
+Function random = CreateFunction(t*3%6, t*2%6, blue, 20);
+
+Section a = CreateSection(20);
+Section b = CreateSection(8);
+
+a.Add(repeatBlue, 5, 1, 0);
+a.Add(repeatMint, 3, 3, 2);
+a.Add(red, 0,1,4);
+a.Add(leftToRight,2);
+a.Add(random,5);
+
+b.Add(diagonal,0);
+b.Add(otherDiagonal,0);
+
+AddSection(b);
+AddSection(a);

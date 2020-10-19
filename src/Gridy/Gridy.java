@@ -139,6 +139,8 @@ public class Gridy {
      */
     public void setDifficulty(int t) {this.difficulty = t;}
 
+    public int getDifficulty() {return difficulty;}
+
     public int getX() {return this.x;}
 
     public int getY() {return this.y;}

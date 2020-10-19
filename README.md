@@ -1,6 +1,7 @@
 # cpsc410_project1_team18 - Gridy
 
 ## Gridy
+[![Gridy_video_link](https://github.students.cs.ubc.ca/cpsc410-2020w-t1/cpsc410_project1_team18/blob/master/images/youtube.png)](https://youtu.be/LpiFU69CHWo)
 
 ### Contributors
 David Kim, Hee Su Kim, Josh Rayo, Toji Nakabayashi, Won Tae Lee
@@ -44,25 +45,23 @@ Refer to the Specs section below and its examples, then write your own Gridy gam
 ### Grammar:
 
 ```
-PROGRAM:= STATEMENTS*
-STATEMENTS:= GEXP | DECLARE | ADD
-DECLARE:= DCELL | DREPEAT | DFUNCTION | DSECTION
-DCELL:= Cell NAME = CreateCell(NUMBER, COLOR, NUMBER);
-DREPEAT:= Repeat NAME = CreateRepeat(NAME, NUMBER, NUMBER);
-DFUNCTION:= Function NAME = CreateFunction(EQUATION, EQUATION, NAME, NUMBER);
-DSECTION:= Section NAME = CreateSection(NUMBER);
-ADD:= ADDSIMP | ADDFUNC
-ADDSIMP:= NAME[.]Add(NAME,NUMBER, NUMBER, NUMBER);
-ADDFUNC:= NAME[.]Add(NAME, NUMBER);
-GEXP:= GCREATE | ADDSECT | DIFFICULTY
-GCREATE:= CreateGame(NUMBER, NUMBER, NUMBER, DIRECTORY?);
-ADDSECT:= AddSection(NAME);
-DIFFICULTY:= Difficulty(LEVEL);
-LEVEL:= [0-9]                                                     #### level is only from 0 to 9
-NUMBER:= [0-9]+
-DIRECTORY:= ,[ ]*[A-Za-z:\\0-9.]+
-NAME:= [a-z][a-ZA-Z0-9]*
-COLOR:= ["red"| "green" | ...]|[hex]
+PROGRAM ::= GCREATE DECLARE+ ADD+ ADDSECT+ DIFFICULTY?
+GCREATE ::= "CreateGame(" NUMBER "," NUMBER "," NUMBER "," MUSICFILE? ");"
+DECLARE ::= DCELL | DREPEAT | DFUNCTION | DSECTION
+ADD ::= ADDSIMP | ADDFUNC
+ADDSECT ::= "AddSection(" NAME ");"
+DIFFICULTY ::= "Difficulty(" LEVEL ");"
+DCELL ::= "Cell" NAME "=" "CreateCell(" NUMBER "," COLOR "," NUMBER ");"
+DREPEAT ::= "Repeat" NAME "=" "CreateRepeat(" NAME "," NUMBER "," NUMBER ");"
+DFUNCTION ::= "Function" NAME "=" "CreateFunction(" EQUATION "," EQUATION "," NAME "," NUMBER ");"
+DSECTION ::= "Section" NAME "=" "CreateSection(" NUMBER ");"
+ADDSIMP ::= NAME ".Add(" NAME "," NUMBER "," NUMBER "," NUMBER ");"
+ADDFUNC ::= NAME ".Add(" NAME "," NUMBER ");"
+LEVEL ::= [0-9]                                                     #### level is only from 0 to 9
+NUMBER ::= [0-9]+
+MUSICFILE ::= ^[A-Za-z0-9.+-*/%~\\s!]+.(?:mp3|wav)
+NAME ::= [a-z][a-ZA-Z0-9]*
+COLOR ::= ["red"| "green" | ...] | #[0-9a-zA-Z]
 ```
 <br/>
 
@@ -240,10 +239,4 @@ b.Add(blue, 5, 1, 2);
 
 // Insert a Section named 'b' to the game. This section would be executed from 30secs ~ 40secs of the game.
 AddSection(b); 
-```
-
-* Libraries Required
-```
-You will need to download and import these libraries to the project in order for this program to run.
-- exp4j: https://lallafa.objecthunter.net/exp4j/download.html
 ```

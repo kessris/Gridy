@@ -91,7 +91,7 @@ public class Parser {
         tokenizer.getAndCheckNext("Difficulty");
         String level = tokenizer.getAndCheckNext("[1-9]");
         tokenizer.getAndCheckNext(";"); // We expect line ending here
-        return new Difficulty("1");
+        return new Difficulty(level);
     }
 
     // DECLARE ::= DECCELL | DECREPEAT | DECFUNCTION | DECSECTION
