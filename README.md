@@ -1,6 +1,6 @@
 # Gridy
 
-[![Gridy_video_link](https://github.com/kessris/Gridy/tree/master/images/youtube.png)](https://youtu.be/LpiFU69CHWo)
+[![Gridy_video_link](https://github.com/kessris/Gridy/blob/master/images/youtube.png)](https://youtu.be/LpiFU69CHWo)
 
 ### Contributors
 David Kim, Hee Su Kim, Josh Rayo, Toji Nakabayashi, Won Tae Lee
